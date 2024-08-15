@@ -1,0 +1,16 @@
+---
+BasedOnStyle: Google
+ColumnLimit: 120
+SpaceBeforeCpp11BracedList: true
+Cpp11BracedListStyle: true
+AlignAfterOpenBracket: BlockIndent
+BinPackArguments: false
+BinPackParameters: false
+InsertTrailingCommas: Wrapped
+BreakConstructorInitializers: BeforeColon
+PackConstructorInitializers: CurrentLine
+SpacesInParentheses: false
+AlignOperands: Align
+BreakBeforeBinaryOperators: false
+PenaltyIndentedWhitespace: 1
+IndentPPDirectives: BeforeHash

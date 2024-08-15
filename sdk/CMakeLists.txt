@@ -1,0 +1,15 @@
+project(sdk)
+
+add_library(${PROJECT_NAME} INTERFACE)
+file(GLOB_RECURSE HEADER_FILES LIST_DIRECTORIES False CONFIGURE_DEPENDS ${PROJECT_SOURCE_DIR}/include/*.h)
+target_sources(${PROJECT_NAME} INTERFACE
+    FILE_SET HEADERS 
+    BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include
+    FILES ${HEADER_FILES}   
+)
+target_link_libraries(${PROJECT_NAME} INTERFACE library)
+
+install(TARGETS ${PROJECT_NAME} FILE_SET HEADERS COMPONENT ${PROJECT_NAME})
+
+add_subdirectory(examples)
+
