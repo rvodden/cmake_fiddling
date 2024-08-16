@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.29)
-project(test_code_test_install_components
+project(test_code_tests
     DESCRIPTION "Tests for the code_test cmake Module"
 )
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/../..")
+
 enable_testing()
 
-set(TEST_NAME test_installed_component_adds_install_and_remove_tests)
+set(TEST_NAME test_install_components)
 set(SOURCE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${TEST_NAME})
 set(WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${TEST_NAME})
 
@@ -23,7 +25,7 @@ add_test(
     NAME ${TEST_NAME}
     WORKING_DIRECTORY ${WORKING_DIRECTORY}
     COMMAND ${CMAKE_COMMAND} 
-        -DCMAKE_MODULE_PATH=${CMAKE_CURRENT_SOURCE_DIR}/../../.. ${SOURCE_DIRECTORY}
+        -DCMAKE_MODULE_PATH=${CMAKE_CURRENT_SOURCE_DIR}/../.. ${SOURCE_DIRECTORY}
         --log-level=debug
 )
 set_tests_properties(${TEST_NAME} PROPERTIES 
